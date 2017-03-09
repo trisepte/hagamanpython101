@@ -1,3 +1,5 @@
+#hey its the pi
+
 print("Welcome to BMI Calculator!")
 
 height = float(input("Please enter your height (in inches): "))
