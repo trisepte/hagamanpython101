@@ -1,4 +1,8 @@
-#hey its the pi
+
+from gpiozero import RGBLED 
+from time import sleep
+
+led = RGBLED(16, 20, 21)
 
 print("Welcome to BMI Calculator!")
 
@@ -14,15 +18,21 @@ bmi = weight_kilo / ( height_meter ** 2 )
 
 if bmi <= 18.5:
     print("Your BMI is ", bmi," which means you are underweight. ")
-
+    led.color = (1, 0, 0) # red
+    
 elif bmi > 18.5 and bmi < 25:
     print("Your BMI is ", bmi," which means you are normal. ")
+    led.color = (0, 1, 0) # green
 
 elif bmi > 25 and bmi < 30:
     print("Your BMI is ", bmi," which means you are overweight. ")
+    led.color = (1, 0.411765, 0) # orange
 
 elif bmi > 30:
     print("Your BMI is ", bmi," which means you are obese. ")
-
+    led.color = (1, 0, 0) # red
+    
 else:
     print("There was an error with your input. ")
+
+sleep(5)
